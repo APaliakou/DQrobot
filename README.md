@@ -13,7 +13,7 @@ Follow [instructions](../README.md)
 
 ## Run robot tests
 ```bash
-robot tests/robot/tests/legislators_db_tests.robot
+robot tests/robot/tests/TC.robot
 ```
 
 # Report portal integration with Robot Framework
