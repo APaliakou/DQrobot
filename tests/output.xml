@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.5 on win32)" generated="20221115 22:12:29.643" rpa="false" schemaversion="3">
+<suite id="s1" name="MSSQL connect" source="C:\Project\other\DQ\DQrobot\tests\MSSQL_connect.robot">
+<test id="s1-t1" name="Connect to DB" line="14">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymssql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20221115 22:12:29.695" level="INFO">Connecting using : pymssql.connect(database=TRN, user=T1000, password=admin, host=localhost, port=1433) </msg>
+<status status="PASS" starttime="20221115 22:12:29.686" endtime="20221115 22:12:29.715"/>
+</kw>
+<status status="PASS" starttime="20221115 22:12:29.686" endtime="20221115 22:12:29.715"/>
+</test>
+<test id="s1-t2" name="count from emplyees" line="17">
+<kw name="Query" library="DatabaseLibrary">
+<var>${outputlog}</var>
+<arg>select count(*) from hr.employees</arg>
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<msg timestamp="20221115 22:12:29.715" level="INFO">Executing : Query  |  select count(*) from hr.employees </msg>
+<msg timestamp="20221115 22:12:29.715" level="INFO">${outputlog} = [(40,)]</msg>
+<status status="PASS" starttime="20221115 22:12:29.715" endtime="20221115 22:12:29.715"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${outputlog}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 22:12:29.732" level="INFO">[(40,)]</msg>
+<status status="PASS" starttime="20221115 22:12:29.731" endtime="20221115 22:12:29.732"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${outputlog}</arg>
+<arg>[(40,)]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221115 22:12:29.733" level="INFO">Argument types are:
+&lt;class 'list'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221115 22:12:29.733" endtime="20221115 22:12:29.733"/>
+</kw>
+<status status="PASS" starttime="20221115 22:12:29.715" endtime="20221115 22:12:29.733"/>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221115 22:12:29.735" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221115 22:12:29.735" endtime="20221115 22:12:29.735"/>
+</kw>
+<status status="PASS" starttime="20221115 22:12:29.651" endtime="20221115 22:12:29.735"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="MSSQL connect">MSSQL connect</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
