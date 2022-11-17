@@ -89,6 +89,9 @@ Check Check that all regions exists
     Should Be Equal As Strings    ${outputlog}    [(0,)]
 
 
+
+
+
 *** Keywords ***
 Connect to DB
     Connect To Database  pymssql  ${DBName}  ${DBUser}  ${DBPass}  ${DBHost}  ${DBPort}
