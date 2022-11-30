@@ -3,7 +3,7 @@ Library   OperatingSystem
 Library   DatabaseLibrary
 Suite Teardown  Disconnect From Database
 
-Resource   ../resources/variables.robot
+Resource   ../resources/var.robot
 
 Resource   ../resources/Core.robot
 
@@ -91,7 +91,7 @@ Check Check that all regions exists
 
 
 
-
+# connector to DB
 *** Keywords ***
 Connect to DB
     Connect To Database  pymssql  ${DBName}  ${DBUser}  ${DBPass}  ${DBHost}  ${DBPort}
